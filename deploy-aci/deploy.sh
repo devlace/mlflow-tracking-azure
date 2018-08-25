@@ -8,7 +8,7 @@ set -o nounset
 #####################
 # CONFIGURE PARAMS
 
-RG_NAME=mlflowserver-rg-02
+RG_NAME=mlflowserver-aci-rg-02
 RG_LOCATION=australiaeast
 
 ACI_IMAGE=devlace/mlflowserver-azure:latest

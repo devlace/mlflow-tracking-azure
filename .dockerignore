@@ -4,3 +4,4 @@
 *.md
 !README.md
 deploy
+deploy-aci

@@ -1,10 +1,12 @@
 # MLFlow Tracking Server on Azure
-This repository provides necessary artefacts to quicky and easily deploy an [MLflow Tracking server](https://mlflow.org/docs/latest/tracking.html) on Azure. [MLflow](https://mlflow.org/docs/latest/index.html) is an open source platform for managing the end-to-end machine learning lifecycle.
+This repository provides necessary artefacts to quicky and easily deploy an [MLflow Tracking server](https://mlflow.org/docs/latest/tracking.html) on Azure. 
+
+[MLflow](https://mlflow.org/docs/latest/index.html) is an open source platform for managing the end-to-end machine learning lifecycle.
 
 ## Deployment Options 
-- [Azure Container Instances (ACI)](deploy-aci/README.md)
-- Azure Kubernetes Service (AKS) - **TODO**
-- Azure Virtual Machine - **TODO**
+- [Deploy to Azure Container Instances (ACI)](deploy-aci/README.md)
+- [Deploy to Azure Kubernetes Service (AKS)](deploy-aks/README.md)
+- Azure Ubuntu Virtual Machine - **TODO**
 
 ## More Information
 - [MLFlow](https://mlflow.org/docs/latest/index.html) 
