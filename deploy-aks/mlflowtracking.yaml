@@ -1,0 +1,63 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: mlflow-tracking-front
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mlflow-tracking-front
+    spec:
+      containers:
+      - name: mlflow-tracking-front
+        image: devlace/mlflowserver-azure:latest
+        ports:
+        - containerPort: 5000
+        env:
+        - name: AZURE_STORAGE_ACCESS_KEY
+          valueFrom:
+            secretKeyRef:
+              name: storage-secret
+              key: azurestorageaccountkey
+        - name: MLFLOW_SERVER_DEFAULT_ARTIFACT_ROOT
+          valueFrom:
+            secretKeyRef:
+              name: storage-secret
+              key: azurestorageaccountartifact
+        - name: MLFLOW_SERVER_FILE_STORE
+          value: "/mnt/azfiles/mlruns"
+        - name: MLFLOW_SERVER_HOST
+          value: "0.0.0.0"
+        - name: MLFLOW_SERVER_PORT
+          value: "5000"
+        volumeMounts:
+        - mountPath: "/mnt/azfiles"
+          name: volume
+      volumes:
+      - name: volume
+        persistentVolumeClaim:
+          claimName: azure-managed-disk
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mlflow-tracking-front
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 5000
+  selector:
+    app: mlflow-tracking-front
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: azure-managed-disk
+spec:
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: managed-premium
+  resources:
+    requests:
+      storage: 5Gi
