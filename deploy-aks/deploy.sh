@@ -42,6 +42,14 @@ az storage account create \
     --name $AKS_STORAGE_ACCOUNT_NAME \
     --sku Standard_LRS
 
+# Export the connection string as an environment variable. The following 'az storage share create' command
+# references this environment variable when creating the Azure file share.
+echo "Exporting storage connection string: $AKS_STORAGE_CONTAINER_NAME"
+export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-string --resource-group $RG_NAME --name $AKS_STORAGE_CONTAINER_NAME --output tsv`
+
+echo "Creating blob container for MLFlow artefacts: $AKS_STORAGE_CONTAINER_NAME"
+az storage container create -n $AKS_STORAGE_CONTAINER_NAME
+
 # Mlflow requires environment variable (AZURE_STORAGE_ACCESS_KEY) to be set at client and with Server
 # Export the access keyas an environment variable
 echo "Exporting storage keys: $AKS_STORAGE_ACCOUNT_NAME"
