@@ -9,6 +9,9 @@ All deployment options come with an automated deployment script. Select one of t
 - [Deploy to Azure Kubernetes Service (AKS)](deploy-aks/README.md)
 - Azure Ubuntu Virtual Machine - **TODO**
 
+
+*DISCLAIMER*: These deployment scripts are bare-bones and do not come with security measures in place. As per recommendation from [MLflow documentation](https://mlflow.org/docs/latest/tracking.html#networking):
+> If running a server in production, we would recommend not exposing the built-in server broadly (as it is unauthenticated and unencrypted), and instead putting it behind a reverse proxy like NGINX or Apache httpd, or connecting over VPN. 
 ## More Information
 - [MLFlow](https://mlflow.org/docs/latest/index.html) 
 - [Azure Container Instances](https://azure.microsoft.com/en-gb/services/container-instances/)
