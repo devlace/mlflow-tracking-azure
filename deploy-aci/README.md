@@ -17,8 +17,8 @@ The following shows the architecture of the deployment.
 
 ![ACI Architecture](../images/aci-archi.PNG?raw=true "ACI Architecture")
 
-## Connecting to MLFlow Tracking Server
-The following outlines requirements to connect to the MLFlow Tracking Server.
+## Logging Data to MLFlow Tracking Server
+The following outlines requirements to log data to the MLFlow Tracking Server.
 
 1. Set `MLFLOW_TRACKING` environment variable to the IP:port (default: 5000) of the deployed Tracking Server.
 2. Since this deployment uses Azure Blob Storage as the Artifact Store, MLFlow requires either `AZURE_STORAGE_CONNECTION_STRING` or `AZURE_STORAGE_ACCESS_KEY` environment variables set appropriately at server **and at the client** as well.

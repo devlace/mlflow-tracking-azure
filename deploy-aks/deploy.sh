@@ -8,7 +8,7 @@ set -o nounset
 #####################
 # CONFIGURE PARAMS
 
-RG_NAME=mlflowserver-aks-rg-03
+RG_NAME=mlflowserver-aks-rg-04
 RG_LOCATION=australiaeast
 
 AKS_IMAGE=devlace/mlflowserver-azure:latest
@@ -45,7 +45,7 @@ az storage account create \
 # Export the connection string as an environment variable. The following 'az storage share create' command
 # references this environment variable when creating the Azure file share.
 echo "Exporting storage connection string: $AKS_STORAGE_CONTAINER_NAME"
-export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-string --resource-group $RG_NAME --name $AKS_STORAGE_CONTAINER_NAME --output tsv`
+export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-string --resource-group $RG_NAME --name $AKS_STORAGE_ACCOUNT_NAME --output tsv`
 
 echo "Creating blob container for MLFlow artefacts: $AKS_STORAGE_CONTAINER_NAME"
 az storage container create -n $AKS_STORAGE_CONTAINER_NAME
