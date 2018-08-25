@@ -3,7 +3,8 @@ This repository provides necessary artefacts to quicky and easily deploy an [MLf
 
 [MLflow](https://mlflow.org/docs/latest/index.html) is an open source platform for managing the end-to-end machine learning lifecycle.
 
-## Deployment Options 
+## Deployment Options
+All deployment options come with an automated deployment script. Select one of the following for deployment instructions/scripts:
 - [Deploy to Azure Container Instances (ACI)](deploy-aci/README.md)
 - [Deploy to Azure Kubernetes Service (AKS)](deploy-aks/README.md)
 - Azure Ubuntu Virtual Machine - **TODO**
