@@ -84,3 +84,5 @@ target/
 # visio
 .vsdx
 .~vsdx
+
+run_locally.sh

@@ -6,7 +6,7 @@ WORKDIR /
 COPY ./mlflow-tracking-docker /
 
 # Install any needed packages specified in requirements.txt
-RUN apt-get update && pip install -r requirements.txt
+RUN apt-get update && pip install -r requirements.txt && chmod +x /setup_mlflow.sh
 
 # REQUIRED:
 # ENV AZURE_STORAGE_ACCESS_KEY <access_key>

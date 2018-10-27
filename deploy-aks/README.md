@@ -8,10 +8,13 @@
 
 ### Deployment
 
-1. Ensure you are in the `deploy-aks` folder.
-2. Open `deploy.sh` and `mlflowtracking.yaml` inspect/change top parameters and environment variables, if necessary.
-3. Run `./deploy.sh`.
-4. Validate deployment by navigating to the deployed Kubernetes Service IP:port (default: 5000).
+1. Ensure you are logged-in in the azure cli. 
+   - Run `az login` to login.
+   - Run `az account set -s <SUBSCRIPTION_ID>` to set target azure subscription.
+2. Ensure you are in the `deploy-aks` folder.
+3. Open `deploy.sh` and `mlflowtracking.yaml` inspect/change top parameters and environment variables, if necessary.
+4. Run `./deploy.sh`.
+5. Validate deployment by navigating to the deployed Kubernetes Service IP:port (default: 5000).
    - You can retrieve IP and port by running: 
    - `kubectl get services`
    - NOTE: First time navigating to the web-ui may throw an error initially but I've found this to be transient.
