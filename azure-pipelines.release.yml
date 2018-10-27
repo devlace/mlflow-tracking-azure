@@ -17,11 +17,12 @@ pool:
 variables:
   dockerId: 'devlace'
   imageName: 'mlflowserver-azure'
+  tag: '0.7.0'
 
 steps:
-- script: docker build -f mlflow-tracking-docker/Dockerfile -t $(dockerId)/$(imageName):$(Build.SourceBranch) .
+- script: docker build -f mlflow-tracking-docker/Dockerfile -t $(dockerId)/$(imageName):$(tag) .
   displayName: 'docker build'
 - script: |
     docker login -u $(dockerId) -p $(dockerPswd)
-    docker push $(dockerId)/$(imageName):$(Build.SourceBranch)
+    docker push $(dockerId)/$(imageName):$(tag)
   displayName: 'docker push'
