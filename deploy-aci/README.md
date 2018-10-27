@@ -23,7 +23,7 @@ The following shows the architecture of the deployment.
 ## Logging Data to MLFlow Tracking Server
 The following outlines requirements to log data to the MLFlow Tracking Server.
 
-1. Set `MLFLOW_TRACKING` environment variable to the IP:port (default: 5000) of the deployed Tracking Server.
+1. Set `MLFLOW_TRACKING_URI` environment variable to `http://IP:port`, where IP:port corresponds to that of the deployed Tracking Server. Default port is 5000.
 2. Since this deployment uses Azure Blob Storage as the Artifact Store, MLFlow requires either `AZURE_STORAGE_CONNECTION_STRING` or `AZURE_STORAGE_ACCESS_KEY` environment variables set appropriately at server **and at the client** as well.
 3. Ensure you have `azure-storage` python installed.
    - Run `pip install azure-storage` to install the package.
