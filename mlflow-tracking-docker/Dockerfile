@@ -3,7 +3,7 @@ FROM python:3.7.0-stretch
 # Set the working directory to /
 WORKDIR /
 # Copy the directory contents into the container at /
-COPY . /
+COPY ./mlflow-tracking-docker /
 
 # Install any needed packages specified in requirements.txt
 RUN apt-get update && pip install -r requirements.txt

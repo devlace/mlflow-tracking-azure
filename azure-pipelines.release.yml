@@ -7,7 +7,7 @@ name: 'mlflowserver-azure-release'
 trigger:
   branches:
     include:
-    - releases/*
+    - release/*
     exclude:
     - master
 
@@ -17,11 +17,12 @@ pool:
 variables:
   dockerId: 'devlace'
   imageName: 'mlflowserver-azure'
+  tag: '0.7.0'
 
 steps:
-- displayName: 'docker build'
-  script: docker build -f mlflow-tracking-docker/Dockerfile -t $(dockerId)/$(imageName):$(Build.SourceBranch) .
-- displayName: 'docker push'
-  script: |
+- script: docker build -f mlflow-tracking-docker/Dockerfile -t $(dockerId)/$(imageName):$(tag) .
+  displayName: 'docker build'
+- script: |
     docker login -u $(dockerId) -p $(dockerPswd)
-    docker push $(dockerId)/$(imageName):$(Build.SourceBranch)
+    docker push $(dockerId)/$(imageName):$(tag)
+  displayName: 'docker push'
