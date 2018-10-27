@@ -1,13 +1,12 @@
 FROM python:3.7.0-stretch
 
-# Install any needed packages specified in requirements.txt
-RUN apt-get update
-RUN pip install -r requirements.txt
-
 # Set the working directory to /
 WORKDIR /
 # Copy the directory contents into the container at /
 COPY . /
+
+# Install any needed packages specified in requirements.txt
+RUN apt-get update && pip install -r requirements.txt
 
 # REQUIRED:
 # ENV AZURE_STORAGE_ACCESS_KEY <access_key>
