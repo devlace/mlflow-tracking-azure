@@ -7,7 +7,7 @@ name: 'mlflowserver-azure-release'
 trigger:
   branches:
     include:
-    - releases/*
+    - release/*
     exclude:
     - master
 
