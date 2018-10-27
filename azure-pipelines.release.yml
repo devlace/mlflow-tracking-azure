@@ -19,9 +19,9 @@ variables:
   imageName: 'mlflowserver-azure'
 
 steps:
-- displayName: 'docker build'
-  script: docker build -f mlflow-tracking-docker/Dockerfile -t $(dockerId)/$(imageName):$(Build.SourceBranch) .
-- displayName: 'docker push'
-  script: |
+- script: docker build -f mlflow-tracking-docker/Dockerfile -t $(dockerId)/$(imageName):$(Build.SourceBranch) .
+  displayName: 'docker build'
+- script: |
     docker login -u $(dockerId) -p $(dockerPswd)
     docker push $(dockerId)/$(imageName):$(Build.SourceBranch)
+  displayName: 'docker push'
