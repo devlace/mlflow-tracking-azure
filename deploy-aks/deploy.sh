@@ -8,10 +8,10 @@ set -o nounset
 #####################
 # CONFIGURE PARAMS
 
-RG_NAME=mlflowserver-aks-rg-04
+RG_NAME=mlflowserver-aks-rg-05
 RG_LOCATION=australiaeast
 
-AKS_IMAGE=devlace/mlflowserver-azure:latest
+AKS_IMAGE=devlace/mlflowserver-azure:0.7.0
 AKS_NAME=mlflowaks
 AKS_STORAGE_ACCOUNT_NAME=storage$RANDOM
 AKS_STORAGE_CONTAINER_NAME=mlflow
