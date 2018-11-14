@@ -17,7 +17,7 @@ pool:
 variables:
   dockerId: 'devlace'
   imageName: 'mlflowserver-azure'
-  tag: '0.7.0'
+  tag: '0.8.0'
 
 steps:
 - script: docker build -f mlflow-tracking-docker/Dockerfile -t $(dockerId)/$(imageName):$(tag) .

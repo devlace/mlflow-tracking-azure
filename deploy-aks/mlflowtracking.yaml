@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: mlflow-tracking-front
-        image: devlace/mlflowserver-azure:0.7.0
+        image: devlace/mlflowserver-azure:0.8.0
         ports:
         - containerPort: 5000
         env:
