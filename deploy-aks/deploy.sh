@@ -11,7 +11,7 @@ set -o nounset
 RG_NAME=mlflowserver-aks-rg-05
 RG_LOCATION=australiaeast
 
-AKS_IMAGE=devlace/mlflowserver-azure:0.7.0
+AKS_IMAGE=devlace/mlflowserver-azure:0.8.0
 AKS_NAME=mlflowaks
 AKS_STORAGE_ACCOUNT_NAME=storage$RANDOM
 AKS_STORAGE_CONTAINER_NAME=mlflow
