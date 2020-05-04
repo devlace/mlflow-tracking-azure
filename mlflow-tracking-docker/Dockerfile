@@ -14,7 +14,7 @@ RUN apt-get update && pip install -r requirements.txt && chmod +x /setup_mlflow.
 # ENV MLFLOW_SERVER_DEFAULT_ARTIFACT_ROOT
 
 # OPTIONAL (if unset, will set to default):
-ENV MLFLOW_SERVER_HOST 127.0.0.1
+ENV MLFLOW_SERVER_HOST 0.0.0.0
 ENV MLFLOW_SERVER_PORT 5000
 ENV MLFLOW_SERVER_WORKERS 4
 
