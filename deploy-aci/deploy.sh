@@ -12,7 +12,7 @@ set -o nounset
 RG_NAME=mlflowserver-aci-rg-01
 RG_LOCATION=australiaeast
 
-ACI_IMAGE=xtellurian/mlflowserver-azure:latest
+ACI_IMAGE=xtellurian/mlflowserver-azure:1.8.0
 ACI_CONTAINER_NAME=mlflowserver
 ACI_DNS_LABEL=aci-mlflow-dns
 ACI_STORAGE_ACCOUNT_NAME=storage$RANDOM
