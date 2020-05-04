@@ -12,13 +12,14 @@ set -o nounset
 RG_NAME=mlflowserver-aci-rg-01
 RG_LOCATION=australiaeast
 
-ACI_IMAGE=devlace/mlflowserver-azure:0.8.0
+ACI_IMAGE=xtellurian/mlflowserver-azure:latest
 ACI_CONTAINER_NAME=mlflowserver
 ACI_DNS_LABEL=aci-mlflow-dns
 ACI_STORAGE_ACCOUNT_NAME=storage$RANDOM
 ACI_STORAGE_CONTAINER_NAME=acicontainer
 ACI_SHARE_MNT_PATH=/mnt/azfiles
 ACI_SHARE_NAME=acishare
+ACI_MEMORY=1
 
 MLFLOW_SERVER_FILE_STORE=$ACI_SHARE_MNT_PATH/mlruns
 MLFLOW_SERVER_DEFAULT_ARTIFACT_ROOT=wasbs://$ACI_STORAGE_CONTAINER_NAME@$ACI_STORAGE_ACCOUNT_NAME.blob.core.windows.net/mlartefacts
@@ -65,6 +66,7 @@ az container create \
     --azure-file-volume-account-key $AZURE_STORAGE_ACCESS_KEY \
     --azure-file-volume-share-name $ACI_SHARE_NAME \
     --azure-file-volume-mount-path $ACI_SHARE_MNT_PATH \
+    --memory $ACI_MEMORY \
     --environment-variables AZURE_STORAGE_ACCESS_KEY=$AZURE_STORAGE_ACCESS_KEY \
         MLFLOW_SERVER_FILE_STORE=$MLFLOW_SERVER_FILE_STORE \
         MLFLOW_SERVER_DEFAULT_ARTIFACT_ROOT=$MLFLOW_SERVER_DEFAULT_ARTIFACT_ROOT \
