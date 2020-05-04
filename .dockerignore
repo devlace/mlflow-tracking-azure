@@ -6,3 +6,4 @@
 deploy
 deploy-aci
 azure-pipelines.*
+mlflow-tracking-docker/Dockerfile
