@@ -1,4 +1,4 @@
-mlflow==1.8.0
+mlflow==2.3.1
 azure-storage-blob==12.3.1
 msrestazure~=0.4.32
 azure-cli==2.0.49
